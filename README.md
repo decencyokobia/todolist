@@ -19,7 +19,7 @@ To run this project locally, follow these steps:
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/react-todolist.git
+   git clone https://github.com/decencyokobia/todolist.git
    ```
 
 2. Navigate into the project directory:
@@ -45,6 +45,10 @@ Once the app is running, you can:
 - Add a task by typing in the input field and pressing Enter.
 - Mark tasks as completed by clicking the checkbox next to a task.
 - Delete a task by clicking the delete button (trash icon) next to the task.
+
+## Screenshot 
+
+<img src='/src/assest/todolist.webp' alt='screenshot of todolist'>
 
 ## Contributing
 
