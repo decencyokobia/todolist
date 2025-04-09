@@ -1,0 +1,32 @@
+.todoContainer {
+    max-width: 500px;
+    width: 90vw;
+    box-shadow: 0 0 15px 2px blueviolet;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.bgLightMode {
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.bgNightMode {
+    background-color: rgb(31, 31, 52);
+    color: white;
+    padding: 1rem;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.completedTask {
+    text-decoration: line-through;
+    color: red;
+}
+
