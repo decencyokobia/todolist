@@ -25,6 +25,10 @@ const TodoList = () => {
     setTodos(todos.filter((_, todoIndex) => todoIndex !== index));
   };
 
+  const clearList = () => {
+    setTodos(todos.filter((todo) => todo.completed === !todo.completed));
+  };
+
   const isComplete = (index: number) => {
     setTodos(
       todos.map((todo, todoIndex) =>
@@ -39,16 +43,26 @@ const TodoList = () => {
 
   return (
     <div className={styles.todoContainer}>
-      <input
-        onChange={(event) => setTask(event.target.value)}
-        value={task}
-        type="text"
-        className="form-control mt-2 mb-2"
-        id="inputField"
-      ></input>
-      <button onClick={addTask} className="btn btn-primary mb-2">
-        Add
+      <div className="input-group mt-2 mb-2">
+        <input
+          onChange={(event) => setTask(event.target.value)}
+          value={task}
+          type="text"
+          className="form-control"
+          aria-label="Text input with segmented dropdown button"
+        />
+        <button
+          onClick={addTask}
+          type="button"
+          className="btn btn-outline-primary"
+        >
+          Add
+        </button>
+      </div>
+      <button onClick={clearList} className="btn btn-danger mb-2">
+        Clear List
       </button>
+
       <ul className="list-group">
         {todos.map((todo, todoIndex) => (
           <li

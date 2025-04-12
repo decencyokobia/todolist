@@ -1,11 +1,12 @@
 .todoContainer {
     max-width: 500px;
+    min-height: 500px;
     width: 90vw;
     box-shadow: 0 0 15px 2px blueviolet;
     border-radius: 1rem;
     padding: 1rem;
     background-color: white;
-    margin: auto;
+    margin: 30px auto 0;
     margin-bottom: 2rem;
 }
 
