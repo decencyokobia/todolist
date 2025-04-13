@@ -1,11 +1,13 @@
 # React To-Do List
 
-A simple React To-Do List application where users can add delete, and mark tasks as completed. This project demonstrates the usage of React components, and state management.
+A simple React To-Do List application where users can add delete, filter, and mark tasks as completed. This project demonstrates the usage of React components, and state management.
 
 ## Features
 - Add new tasks
 - Mark tasks as completed
 - Delete tasks
+- Filter tasks
+- Clear whole list
 - Responsive design
 
 ## Technologies Used
@@ -48,7 +50,7 @@ Once the app is running, you can:
 
 ## Screenshot 
 
-<img src='/src/assest/todolist.webp' alt='screenshot of todolist'>
+<img src='/src/assest/updated todolist.webp' alt='screenshot of todolist app'>
 
 ## Contributing
 

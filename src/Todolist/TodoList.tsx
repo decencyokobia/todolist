@@ -14,6 +14,13 @@ const TodoList = () => {
     const savedTodos = localStorage.getItem("todolist");
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+
+  const displayTodos = todos.filter((todo) => {
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+    return true;
+  });
 
   const addTask = () => {
     if (task.trim() === "") return;
@@ -26,7 +33,7 @@ const TodoList = () => {
   };
 
   const clearList = () => {
-    setTodos(todos.filter((todo) => todo.completed === !todo.completed));
+    setTodos([]);
   };
 
   const isComplete = (index: number) => {
@@ -45,8 +52,9 @@ const TodoList = () => {
     <div className={styles.todoContainer}>
       <div className="input-group mt-2 mb-2">
         <input
-          onChange={(event) => setTask(event.target.value)}
           value={task}
+          onChange={(event) => setTask(event.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && addTask()}
           type="text"
           className="form-control"
           aria-label="Text input with segmented dropdown button"
@@ -59,12 +67,31 @@ const TodoList = () => {
           Add
         </button>
       </div>
-      <button onClick={clearList} className="btn btn-danger mb-2">
-        Clear List
-      </button>
-
+      <div>
+        <button onClick={clearList} className="btn btn-danger mb-2">
+          Clear List
+        </button>
+        <button
+          onClick={() => setFilter("all")}
+          className="btn btn-outline-secondary mb-2 mx-2"
+        >
+          All
+        </button>
+        <button
+          onClick={() => setFilter("active")}
+          className="btn btn-outline-secondary mb-2 "
+        >
+          Active
+        </button>
+        <button
+          onClick={() => setFilter("completed")}
+          className="btn btn-outline-secondary mb-2 mx-2"
+        >
+          Completed
+        </button>
+      </div>
       <ul className="list-group">
-        {todos.map((todo, todoIndex) => (
+        {displayTodos.map((todo, todoIndex) => (
           <li
             className="list-group-item d-flex justify-content-between align-items-center"
             key={todoIndex}
@@ -73,12 +100,16 @@ const TodoList = () => {
               {todo.completed ? (
                 <IoMdCheckboxOutline
                   size={20}
-                  onClick={() => isComplete(todoIndex)}
+                  onClick={() => {
+                    isComplete(todoIndex);
+                  }}
                 />
               ) : (
                 <MdOutlineCheckBoxOutlineBlank
                   size={20}
-                  onClick={() => isComplete(todoIndex)}
+                  onClick={() => {
+                    isComplete(todoIndex);
+                  }}
                 />
               )}{" "}
               {todo.task}
