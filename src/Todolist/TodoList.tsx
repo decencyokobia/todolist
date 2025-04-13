@@ -23,7 +23,10 @@ const TodoList = () => {
   });
 
   const addTask = () => {
-    if (task.trim() === "") return;
+    if (task.trim() === "") {
+      alert("No task to add.");
+      return;
+    }
     setTodos([...todos, { task, completed: false }]);
     setTask("");
   };
